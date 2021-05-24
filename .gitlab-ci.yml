@@ -1,0 +1,33 @@
+# 指定node版本
+image: node:12.17.0
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+  - deploy
+
+before_script:
+  - node -v
+  - yarn -v
+  - yarn install --forzen-lockfile
+
+lint:
+  stage: test
+  script:
+    - yarn lint
+
+build:
+  stage: test
+  script:
+    - export CI=false
+    - yarn build
+
+deploy:
+  stage: deploy
+  only:
+    - develop
+  script:
+    - curl -X POST "${DEV_HOST}/deploy?project=qkcode&token=${DEV_TOKEN}" --fail

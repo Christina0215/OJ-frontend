@@ -1,0 +1,71 @@
+.logo {
+  height: 32px;
+  color: white;
+  margin: 16px;
+  font-size: 22px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.layout {
+  transition: all 0.2s;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  &:hover {
+    color: #8a2be2;
+  }
+}
+
+.sider {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+}
+
+.header {
+  padding: 0;
+  box-shadow: 0px 0px 10px 0px #8a2be2;
+  background: #fff;
+}
+
+.content {
+  background: white;
+  margin: 24px 16px 0;
+  overflow: initial;
+  padding: 24px;
+}
+
+.featureOuter {
+  float: right;
+  width: 44px;
+  height: 100%;
+  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  .featureInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+      .triangle {
+        background-color: gray;
+      }
+    }
+    .triangle {
+      width: 10px;
+      height: 5px;
+      background-color: rgb(56, 56, 56);
+      clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+    }
+  }
+}

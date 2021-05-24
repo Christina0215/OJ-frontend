@@ -1,0 +1,50 @@
+.useflex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.create-button-container {
+  position: fixed;
+  .useflex();
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  z-index: 100;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .create-button-outter {
+    .useflex();
+    width: 80px;
+    height: 80px;
+    background-color: rgba(216, 30, 6, 0.5);
+    transition: all 0.5s;
+
+    .create-button-inner {
+      .useflex();
+      width: 60px;
+      height: 60px;
+      background-color: rgba(138, 43, 226, 0.3);
+      transition: all 0.5s;
+    }
+
+    &:hover {
+      transform: scale(1.4, 1.4);
+      background-color: rgba(138, 43, 226, 0.3);
+
+      .create-button-inner {
+        transform: scale(0.85, 0.85);
+        background-color: rgba(216, 30, 6, 0.5);
+      }
+    }
+  }
+}
+
+.CodeMirror {
+  min-height: 450px !important;
+}
