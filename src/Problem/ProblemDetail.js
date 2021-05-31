@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Tabs, Icon } from "antd";
 import Commit from "./Commit";
-import Commment from "../Component/comment/showComments";
 import server from "../server";
 import Detail from "./Detail";
 import Submit from "./Submit";
+import SolutionBoard from "./SolutionBoard";
 
 export default ({ match }) => {
   const { problemId } = match.params;
+  console.log(match)
   const [problem, setProblem] = useState({});
   const [tabKey, setTabKey] = useState("1");
 
@@ -23,20 +24,6 @@ export default ({ match }) => {
   }, []);
 
   const { TabPane } = Tabs;
-
-  const commentExample = {
-    comment: "含烟是谁",
-    children: [
-      {
-        comment: "我觉得是龚荣云",
-        key: 0,
-      },
-      {
-        comment: "我也觉得",
-        key: 1,
-      },
-    ],
-  };
 
   return (
     <Tabs
@@ -84,16 +71,12 @@ export default ({ match }) => {
         tab={
           <span>
             <Icon type="audio" />
-            Discuss
+            Solutions
           </span>
         }
         key="4"
       >
-        <Commment comment={commentExample.comment}>
-          {commentExample.children.map((item, index) => (
-            <Commment key={item.key} comment={commentExample.children[index].comment} />
-          ))}
-        </Commment>
+        <SolutionBoard problemId={problemId} tabKey={tabKey}/>
       </TabPane>
     </Tabs>
   );

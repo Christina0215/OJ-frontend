@@ -4,6 +4,7 @@ import ProblemBoard from "./ProblemBoard";
 import ProblemDetail from "./ProblemDetail";
 import ProblemCreate from "./ProblemCreate";
 import ProblemModify from "./ProblemModify";
+import SolutionDetail from "./SolutionDetail";
 
 export default () => {
   return (
@@ -12,6 +13,7 @@ export default () => {
       <Route exact path="/problem/:problemId" component={ProblemDetail} />
       <Route exact path="/problem/create/new" component={ProblemCreate} />
       <Route exact path="/problem/modify/:problemId" component={ProblemModify} />
+      <Route exact path="/problem/:problemId/solution/:solutionId" component={SolutionDetail}/>
     </Switch>
   );
 };
