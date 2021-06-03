@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card, Icon, Form, Input } from "antd";
-import httpServer from "../server";
+import server from "../server";
 
 export default () => {
   const [profile, setProfile] = useState({ username: "", email: "", gender: "", introduction: "" });
   useEffect(() => {
-    httpServer.get("/auth").then(r => {
+    server.get("/auth").then(r => {
       console.log(r.data);
       const { username, email, gender, introduction } = r.data;
       setProfile({

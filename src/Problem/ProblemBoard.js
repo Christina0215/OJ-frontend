@@ -10,6 +10,7 @@ import server from "../server";
 import ConfirmButton from "../Component/ConfirmButton";
 
 export default ({ history }) => {
+  console.log(history)
   const [currentPage, setCurrentPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [status, setStatus] = useState("");

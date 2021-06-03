@@ -9,6 +9,7 @@ import TextInput from "../Component/TextInput";
 import ImageWall from "../Component/Image";
 import server from "../server";
 
+
 export default ({ problemData, modifyProblem }) => {
   const [problem, setProblem] = useState({
     title: "",

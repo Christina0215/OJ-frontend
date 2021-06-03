@@ -8,7 +8,7 @@ import "./main.less";
 import server from "../server";
 import ConfirmButton from "../Component/ConfirmButton";
 
-export default ({ problemId, tabKey,history }) => {
+export default ({ problemId, tabKey, history }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [language, setLanguage] = useState("");

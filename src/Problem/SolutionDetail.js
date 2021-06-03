@@ -1,35 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { Tabs, Icon } from "antd";
-import Commit from "./Commit";
 import server from "../server";
-import Detail from "./Detail";
-import Submit from "./Submit";
-import SolutionBoard from "./SolutionBoard";
+import md from "../Component/MarkdownIt";
+import Card from "antd"
 
 export default ({ match }) => {
-  const { problemId } = match.params.problemId;
-  const { solutionId } = match.params.solutionId;
-  const [problem, setProblem] = useState({});
-  const [tabKey, setTabKey] = useState("1");
+  const problemId = match.params.problemId;
+  const solutionId = match.params.solutionId;
+  const [solution, setSolution] = useState({});
 
+  const mdRender = (value = "") => {
+    return md.render(value);
+  };
+  
   useEffect(() => {
     server
       .get(`/problem/${problemId}/solution/${solutionId}`)
       .then(response => {
-        setProblem(response.data);
+        setSolution(response.data);
       })
       .catch(() => {
         console.log("not found page");
       });
   }, []);
 
-  const { TabPane } = Tabs;
-
   return (
     <div style={{ padding: "20px 40px" }}>
-      <Card title={problem.title} extra={<div>{getExtra(problem)}</div>}>
+      <Card title={solution.title}>
         <div style={{ marginBottom: "20px" }}>
-          <p dangerouslySetInnerHTML={{ __html: mdRender(problem.content) }}></p>
+          <p dangerouslySetInnerHTML={{ __html: mdRender(solution.content) }}></p>
         </div>
       </Card>
     </div>

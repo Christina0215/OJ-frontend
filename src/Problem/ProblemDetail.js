@@ -6,9 +6,9 @@ import Detail from "./Detail";
 import Submit from "./Submit";
 import SolutionBoard from "./SolutionBoard";
 
-export default ({ match }) => {
-  const { problemId } = match.params;
+export default ({ match, history }) => {
   console.log(match)
+  const { problemId } = match.params;
   const [problem, setProblem] = useState({});
   const [tabKey, setTabKey] = useState("1");
 
@@ -76,7 +76,7 @@ export default ({ match }) => {
         }
         key="4"
       >
-        <SolutionBoard problemId={problemId} tabKey={tabKey}/>
+        <SolutionBoard problemId={problemId} tabKey={tabKey} history={history}/>
       </TabPane>
     </Tabs>
   );

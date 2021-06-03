@@ -64,7 +64,7 @@ server.interceptors.response.use(
     if (code === 401) {
       // errorMessage = error.response.data.message || "登录信息过期，请重新登录";
     } else if (code === 403) {
-      errorMessage = error.response.data.message || "权限不够，无法进行此操作";
+      errorMessage = error.response.data.err_msg || "权限不够，无法进行此操作";
     } else if (code === 413) {
       errorMessage = "上传文件过大";
     } else if (code === 422) {
@@ -74,7 +74,7 @@ server.interceptors.response.use(
         validations.push(`[${name}] ${msg}`);
       });
     } else {
-      errorMessage = error.response.data.message || "未知错误";
+      errorMessage = error.response.data.err_msg || "未知错误";
     }
     if (!errorMessage) {
       return Promise.reject(error);
