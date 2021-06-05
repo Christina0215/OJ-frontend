@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import server from "../server";
 import md from "../Component/MarkdownIt";
-import Card from "antd"
+import {Card} from "antd";
 
 export default ({ match }) => {
   const problemId = match.params.problemId;
