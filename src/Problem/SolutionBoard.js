@@ -62,10 +62,10 @@ export default ({ problemId, tabKey, history }) => {
     },
     {
       title: "Author",
-      dataIndex: "author",
-      key: "author",
-      render: author => {
-        return <span>{`${author}%`}</span>;
+      dataIndex: "user",
+      key: "user",
+      render: user => {
+        return <span>{`${user}`}</span>;
       },
     },
   ];
