@@ -24,10 +24,9 @@ export default ({ match, solutionData, modifySolution }) => {
                 setStatus("modify");
             }
         })
-    }, [solutionData]);
+    }, [solutionData,user]);
 
     const language = ["C", "C++", "C#", "Go", "JavaScript"];
-    if (store.get("auth") && store.get("auth").role.alias === "admin")
         return (
             <div className="create-problem-container">
                 <PageHeader
@@ -53,7 +52,7 @@ export default ({ match, solutionData, modifySolution }) => {
                                     type="primary"
                                     clickHandler={() => {
                                         if (status === "create") {
-                                            console.log(solution);
+                                            console.log(user);
                                             server.post(`/problem/${problemId}/solution`, { ...solution, user: user }).catch(error => {
                                                 console.error(error);
                                             });
@@ -102,5 +101,4 @@ export default ({ match, solutionData, modifySolution }) => {
                 </div>
             </div>
         );
-    else return <div></div>;
 };
